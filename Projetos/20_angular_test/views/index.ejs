@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--Abaixo configuramos um directive, que permite identificarmos o elemento quando formos utilizar o Angular.-->
+<html lang="en" ng-app="TestApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+    <title>20 - Angular Test (MEAN Stack)</title>
+</head>
+<!--Também usamos um directive no body. (vm = view model)-->
+<body ng-controller="MainController as vm">
+
+    <!--Podemos acessar o objeto criado pelo Angular, usando '{{}}', e por outros elementos, como abaixo:
+    É interessante notar que a variável é atualizada automaticamente, se digitarmos no campo input, a mensagem logo abaixo muda tmb.-->
+    <input type="text" ng-model="vm.message">
+    <br>
+    {{vm.message}}
+    <br>
+    <ul>
+        <!--Podemos povoar uma lista de forma automática pelo Angular.-->
+        <li ng-repeat="person in vm.people">
+            {{person.name}}
+        </li>
+    </ul>
+
+    <!--Este documento não será executado pelo Node, ele irá ser enviado pelo Node ao browser devido ao HTTP request, e o browser irá executa-lo, inicando então nosso uso do Angular que estará nesse script JS.-->
+    <script src="/public/js/app.js"></script>
+</body>
+</html>
